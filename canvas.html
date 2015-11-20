@@ -1,0 +1,128 @@
+
+<div id="canvas-container">
+
+	<div id="toolbar">
+
+		<span class="logo-canvas"></span>
+
+		<span class="sep"></span>
+		<div class="mode-group">
+		<div class="mode active"><div class="mode-icon" id="pencil-canvas" data-open="draw-opt"> Dibujar </div></div>
+
+		<ul class="sweep-opt" id="draw-opt">
+			<li class="close-opt" data-close="draw-opt">Cerrar</li>
+			<li id="pencil-opt">Libre</li>
+			<li id="circle-opt">Circulo</li>
+			<li id="square-opt">Cuadrado</li>
+			<li id="tri-opt">Triangulo</li>
+		</ul>
+		<div class="clearfix"></div>
+		</div>
+		<span class="sep"></span>
+		<div class="mode-group">
+		<div class="mode"><div id="text-canvas" class="mode-icon" data-open="text-opt"> Texto/Ecuación</div></div>
+		<ul class="sweep-opt" id="text-opt">
+			<li class="close-opt" data-close="text-opt">Cerrar</li>
+			<li id="stand-opt">Normal</li>
+			<li id="bold-opt">Negrita</li>
+			<li id="equation-opt">Ecuación</li>
+		</ul>
+		<div class="clearfix"></div>
+		</div>
+
+		<span class="sep"></span>
+		<div class="mode-group">
+		<div class="mode"><div  class="mode-icon" id="media-canvas" data-open="media-opt"> Media</div></div>
+		<ul class="sweep-opt" id="media-opt">
+		<li class="close-opt" data-close="media-opt">Cerrar</li>
+			<li id="image-opt">Imagen</li>
+
+		</ul>
+		<div class="clearfix"></div>
+		</div>
+		<span class="sep"></span>
+		<div class="mode"><div id="clear-canvas" class="mode-icon"> Limpiar Slide </div></div>
+		<span class="sep"></span>
+		<!--inputs for controls-->
+		<input type="hidden" id="drawing-color" value="#181818">
+		<input type="hidden" id="drawing-line-width" value="2">
+
+		</div>
+	<div class="right-canvas">
+		<div class="equation_modal">
+			<h4>Inserta tu ecuación <span class="close_eq">x</span></h4>
+			<p class="copy_equation">Escribe tu ecuacion en formato LATEX, si necesitas una guia rapida de
+			LATEX puedes consultarla
+			<a href="http://rinconmatematico.com/instructivolatex/formulas.htm" target="_blank">aca</a>.
+			<br/><br/>Al TERMINAR DE ESCRIBIRLA haz click en "Ver vista previa.." si te gusta como quedo haz click en
+			Insertar SI QUEDO MAL corrigela en el campo de texto , visualiza su vista previa e insertala.
+			<br/><br/>NOTA: NO INCLUYAS los comandos begin , end, tex, \[ ó \] </p>
+			<textarea id="equation-in" rows="2" placeholder="Escribe tu ecuación..." parsley-rangelength="[1,100]"></textarea>
+			<a id="convert-eq"><i class="icon icon-magic"> </i>Ver vista previa de la ecuación, antes de insertar</a>
+			<div id="equation-loader">Generando ecuación por favor espera...</div>
+			<div id="equation-result">
+				<div class="clearfix"></div>
+			</div>
+			<div class="buttons_i">
+			<button class="button send" id="insert_eq"><i class="icon icon-sign-in"> </i>Insertar</button>
+			<button class="button bluesky" id="cancel_eq">Cancelar</button></div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="addimage_modal">
+			<h4>Inserta una imagén <span class="close_img">x</span></h4>
+			<p class="copy_equation"><b>RECUERDA:</b>Solo puedes insertar imagenes que no pesen mas de 300Kb.Formatos aceptados: Jpeg, jpg, png, gif</p>
+			<input type="file" id="files" name="files[]" />
+<div class="clearfix"></div>
+<output id="list" style="display:block;margin: 5px auto;"></output>
+			<div class="buttons_i">
+			<input type="hidden" id="url_img_canvas"/>
+			<button class="button send" id="insert_img_to_canvas"><i class="icon icon-sign-in"> </i>Insertar</button>
+			<button class="button bluesky" id="cancel_img_canvas">Cancelar</button></div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="properties">
+			<h4>Pizarra</h4>
+			<div class="sepb"></div>
+			<div class="move-icon"></div>
+			<div class="sepb"></div>
+			<div class="brush-icon"></div>
+			<div class="brush active-b" id="brush-small"></div>
+			<div class="brush" id="brush-med"></div>
+			<div class="brush" id="brush-lar"></div>
+			<div class="sepb"></div>
+			<div class="palette-icon"></div>
+			<div class="color-opt black active-o"></div>
+			<div class="color-opt blue"></div>
+			<div class="color-opt orange"></div>
+
+			<div class="sepb"></div>
+			<div id="eraser-canvas"> </div>
+
+
+
+		</div>
+
+		<div class="title-steps">
+		<input type="text" id="title-step" value="" placeholder="Escribe un titulo para este paso de tu explicación (max 40 caracteres)" parsley-required="true" parsley-maxlength="40"/>
+		<div class="step-by-step">Paso <span id="actual-slide-t">1</span> de <span id="count-slides-t">1</span> </div>
+		</div>
+
+		<canvas id="answer-canvas" width="619" height="386"></canvas>
+
+
+		<div id="slides">
+			<ul>
+				<li id="delete-slide">- Eliminar Paso</li>
+				<li id="add-slide">+ Añadir Paso</li>
+				<li>|</li>
+				<li class="slide-p active-s" data-slide-number="1">1</li>
+				<li id="fake"></li>
+				<li id="createInitial"></li>
+				<li id="reset-canvas"></li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+
+	</div>
+	<div class="clearfix"></div>
+</div>
